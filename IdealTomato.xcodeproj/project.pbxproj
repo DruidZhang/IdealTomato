@@ -1,0 +1,480 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */; };
+		394DEF0521EDA96E00AB6D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0321EDA96E00AB6D1C /* Main.storyboard */; };
+		394DEF0721EDA97200AB6D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0621EDA97200AB6D1C /* Assets.xcassets */; };
+		394DEF0A21EDA97200AB6D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0821EDA97200AB6D1C /* LaunchScreen.storyboard */; };
+		394DEF0D21EDA97200AB6D1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF0C21EDA97200AB6D1C /* main.m */; };
+		394DEF1521EDB73800AB6D1C /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF1421EDB73800AB6D1C /* TabBarController.m */; };
+		394DEF1921EDBC8000AB6D1C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF1821EDBC8000AB6D1C /* MainViewController.m */; };
+		394DEF1D21EDC33500AB6D1C /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF1C21EDC33500AB6D1C /* StatisticViewController.m */; };
+		394DEF2121EDD48400AB6D1C /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF2021EDD48400AB6D1C /* TimerViewController.m */; };
+		394DEF2421EDD64000AB6D1C /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF2321EDD64000AB6D1C /* TimerView.m */; };
+		9E0719D909407CBE884EADD5 /* libPods-IdealTomato.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E72C1696F950895351722E06 /* libPods-IdealTomato.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		394DEEFA21EDA96E00AB6D1C /* IdealTomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdealTomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		394DEEFD21EDA96E00AB6D1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		394DEF0421EDA96E00AB6D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		394DEF0621EDA97200AB6D1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		394DEF0921EDA97200AB6D1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		394DEF0B21EDA97200AB6D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		394DEF0C21EDA97200AB6D1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		394DEF1321EDB71900AB6D1C /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		394DEF1421EDB73800AB6D1C /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		394DEF1721EDBBF600AB6D1C /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		394DEF1821EDBC8000AB6D1C /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		394DEF1B21EDC32C00AB6D1C /* StatisticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticViewController.h; sourceTree = "<group>"; };
+		394DEF1C21EDC33500AB6D1C /* StatisticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticViewController.m; sourceTree = "<group>"; };
+		394DEF1F21EDD44800AB6D1C /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		394DEF2021EDD48400AB6D1C /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		394DEF2221EDD63400AB6D1C /* TimerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
+		394DEF2321EDD64000AB6D1C /* TimerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		69BF458EF8D704603691D197 /* Pods-IdealTomato.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdealTomato.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato.debug.xcconfig"; sourceTree = "<group>"; };
+		E72C1696F950895351722E06 /* libPods-IdealTomato.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IdealTomato.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E896D8F696B1F6877F514F73 /* Pods-IdealTomato.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdealTomato.release.xcconfig"; path = "Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		394DEEF721EDA96E00AB6D1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0719D909407CBE884EADD5 /* libPods-IdealTomato.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E0E91B39CB84917AD4B4761 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69BF458EF8D704603691D197 /* Pods-IdealTomato.debug.xcconfig */,
+				E896D8F696B1F6877F514F73 /* Pods-IdealTomato.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		394DEEF121EDA96E00AB6D1C = {
+			isa = PBXGroup;
+			children = (
+				394DEEFC21EDA96E00AB6D1C /* IdealTomato */,
+				394DEEFB21EDA96E00AB6D1C /* Products */,
+				2E0E91B39CB84917AD4B4761 /* Pods */,
+				9F275C8D7FFC6503D2B4DC25 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		394DEEFB21EDA96E00AB6D1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				394DEEFA21EDA96E00AB6D1C /* IdealTomato.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		394DEEFC21EDA96E00AB6D1C /* IdealTomato */ = {
+			isa = PBXGroup;
+			children = (
+				394DEF1E21EDC56200AB6D1C /* Timer */,
+				394DEF1A21EDC23B00AB6D1C /* Statistic */,
+				394DEF1621EDBBDC00AB6D1C /* Task */,
+				394DEEFD21EDA96E00AB6D1C /* AppDelegate.h */,
+				394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */,
+				394DEF0321EDA96E00AB6D1C /* Main.storyboard */,
+				394DEF0621EDA97200AB6D1C /* Assets.xcassets */,
+				394DEF0821EDA97200AB6D1C /* LaunchScreen.storyboard */,
+				394DEF0B21EDA97200AB6D1C /* Info.plist */,
+				394DEF0C21EDA97200AB6D1C /* main.m */,
+				394DEF1321EDB71900AB6D1C /* TabBarController.h */,
+				394DEF1421EDB73800AB6D1C /* TabBarController.m */,
+			);
+			path = IdealTomato;
+			sourceTree = "<group>";
+		};
+		394DEF1621EDBBDC00AB6D1C /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				394DEF1721EDBBF600AB6D1C /* MainViewController.h */,
+				394DEF1821EDBC8000AB6D1C /* MainViewController.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		394DEF1A21EDC23B00AB6D1C /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				394DEF1B21EDC32C00AB6D1C /* StatisticViewController.h */,
+				394DEF1C21EDC33500AB6D1C /* StatisticViewController.m */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		394DEF1E21EDC56200AB6D1C /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				394DEF1F21EDD44800AB6D1C /* TimerViewController.h */,
+				394DEF2021EDD48400AB6D1C /* TimerViewController.m */,
+				394DEF2221EDD63400AB6D1C /* TimerView.h */,
+				394DEF2321EDD64000AB6D1C /* TimerView.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		9F275C8D7FFC6503D2B4DC25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E72C1696F950895351722E06 /* libPods-IdealTomato.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		394DEEF921EDA96E00AB6D1C /* IdealTomato */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 394DEF1021EDA97200AB6D1C /* Build configuration list for PBXNativeTarget "IdealTomato" */;
+			buildPhases = (
+				9B5A0F31CCC2EF5EBE064A6F /* [CP] Check Pods Manifest.lock */,
+				394DEEF621EDA96E00AB6D1C /* Sources */,
+				394DEEF721EDA96E00AB6D1C /* Frameworks */,
+				394DEEF821EDA96E00AB6D1C /* Resources */,
+				E0270B1B23FBB48F5AC45D6A /* [CP] Embed Pods Frameworks */,
+				DA95A0778896D741A5E103DF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IdealTomato;
+			productName = IdealTomato;
+			productReference = 394DEEFA21EDA96E00AB6D1C /* IdealTomato.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		394DEEF221EDA96E00AB6D1C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = IdealCountry;
+				TargetAttributes = {
+					394DEEF921EDA96E00AB6D1C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 394DEEF521EDA96E00AB6D1C /* Build configuration list for PBXProject "IdealTomato" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 394DEEF121EDA96E00AB6D1C;
+			productRefGroup = 394DEEFB21EDA96E00AB6D1C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				394DEEF921EDA96E00AB6D1C /* IdealTomato */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		394DEEF821EDA96E00AB6D1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				394DEF0A21EDA97200AB6D1C /* LaunchScreen.storyboard in Resources */,
+				394DEF0721EDA97200AB6D1C /* Assets.xcassets in Resources */,
+				394DEF0521EDA96E00AB6D1C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B5A0F31CCC2EF5EBE064A6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IdealTomato-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA95A0778896D741A5E103DF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0270B1B23FBB48F5AC45D6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		394DEEF621EDA96E00AB6D1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				394DEF2121EDD48400AB6D1C /* TimerViewController.m in Sources */,
+				394DEF1D21EDC33500AB6D1C /* StatisticViewController.m in Sources */,
+				394DEF1521EDB73800AB6D1C /* TabBarController.m in Sources */,
+				394DEF0D21EDA97200AB6D1C /* main.m in Sources */,
+				394DEF2421EDD64000AB6D1C /* TimerView.m in Sources */,
+				394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */,
+				394DEF1921EDBC8000AB6D1C /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		394DEF0321EDA96E00AB6D1C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				394DEF0421EDA96E00AB6D1C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		394DEF0821EDA97200AB6D1C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				394DEF0921EDA97200AB6D1C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		394DEF0E21EDA97200AB6D1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		394DEF0F21EDA97200AB6D1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		394DEF1121EDA97200AB6D1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69BF458EF8D704603691D197 /* Pods-IdealTomato.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IdealTomato/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = IdealCountry.IdealTomato;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		394DEF1221EDA97200AB6D1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E896D8F696B1F6877F514F73 /* Pods-IdealTomato.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IdealTomato/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = IdealCountry.IdealTomato;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		394DEEF521EDA96E00AB6D1C /* Build configuration list for PBXProject "IdealTomato" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394DEF0E21EDA97200AB6D1C /* Debug */,
+				394DEF0F21EDA97200AB6D1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		394DEF1021EDA97200AB6D1C /* Build configuration list for PBXNativeTarget "IdealTomato" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				394DEF1121EDA97200AB6D1C /* Debug */,
+				394DEF1221EDA97200AB6D1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 394DEEF221EDA96E00AB6D1C /* Project object */;
+}
