@@ -19,6 +19,7 @@
 - (void)loadView {
     TimerView * timerView = [[TimerView alloc]init];
     self.view = timerView;
+    self.view.backgroundColor = UIColor.redColor;
 }
 
 @end

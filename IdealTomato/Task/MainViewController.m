@@ -16,6 +16,9 @@
     //#f0f0f2
     self.view.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:242.0/255.0 alpha:1];
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
+//    self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>
 }
 
 @end

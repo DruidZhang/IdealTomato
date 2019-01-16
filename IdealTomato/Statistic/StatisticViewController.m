@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "StatisticViewController.h"
+#import "../Timer/TimerViewController.h"
 
 @implementation StatisticViewController
 
