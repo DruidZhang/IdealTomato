@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MainViewController.h"
+#import "../Timer/TimerViewController.h"
 
 @implementation MainViewController
 
@@ -17,8 +18,9 @@
     self.view.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:242.0/255.0 alpha:1];
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
-//    self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>
+    //跳转这么写
+//    TimerViewController *timerVC = [[TimerViewController alloc]init];
+//    [self.navigationController pushViewController:timerVC animated:YES];
 }
 
 @end
