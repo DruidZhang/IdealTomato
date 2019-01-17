@@ -13,6 +13,8 @@
 
 @interface TimerViewController : UIViewController
 
+- (void)show;
+
 @end
 
 #endif /* TimerViewController_h */

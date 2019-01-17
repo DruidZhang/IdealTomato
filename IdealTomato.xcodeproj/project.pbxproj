@@ -17,6 +17,7 @@
 		394DEF1D21EDC33500AB6D1C /* StatisticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF1C21EDC33500AB6D1C /* StatisticViewController.m */; };
 		394DEF2121EDD48400AB6D1C /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF2021EDD48400AB6D1C /* TimerViewController.m */; };
 		394DEF2421EDD64000AB6D1C /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF2321EDD64000AB6D1C /* TimerView.m */; };
+		394DEF2721F07D3900AB6D1C /* Tomato.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEF2621F07D3900AB6D1C /* Tomato.m */; };
 		9E0719D909407CBE884EADD5 /* libPods-IdealTomato.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E72C1696F950895351722E06 /* libPods-IdealTomato.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		394DEF2021EDD48400AB6D1C /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		394DEF2221EDD63400AB6D1C /* TimerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		394DEF2321EDD64000AB6D1C /* TimerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		394DEF2521F07CE400AB6D1C /* Tomato.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tomato.h; sourceTree = "<group>"; };
+		394DEF2621F07D3900AB6D1C /* Tomato.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tomato.m; sourceTree = "<group>"; };
 		69BF458EF8D704603691D197 /* Pods-IdealTomato.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdealTomato.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato.debug.xcconfig"; sourceTree = "<group>"; };
 		E72C1696F950895351722E06 /* libPods-IdealTomato.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IdealTomato.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E896D8F696B1F6877F514F73 /* Pods-IdealTomato.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdealTomato.release.xcconfig"; path = "Pods/Target Support Files/Pods-IdealTomato/Pods-IdealTomato.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				394DEF0C21EDA97200AB6D1C /* main.m */,
 				394DEF1321EDB71900AB6D1C /* TabBarController.h */,
 				394DEF1421EDB73800AB6D1C /* TabBarController.m */,
+				394DEF2521F07CE400AB6D1C /* Tomato.h */,
+				394DEF2621F07D3900AB6D1C /* Tomato.m */,
 			);
 			path = IdealTomato;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				394DEF2421EDD64000AB6D1C /* TimerView.m in Sources */,
 				394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */,
 				394DEF1921EDBC8000AB6D1C /* MainViewController.m in Sources */,
+				394DEF2721F07D3900AB6D1C /* Tomato.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

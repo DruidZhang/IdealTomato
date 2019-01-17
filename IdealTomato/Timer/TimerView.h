@@ -13,6 +13,8 @@
 
 @interface TimerView : UIView
 
+- (void)drawCircle: (int)angle;
+
 @end
 
 #endif /* TimerView_h */

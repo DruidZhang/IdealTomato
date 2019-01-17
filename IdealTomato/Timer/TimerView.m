@@ -11,6 +11,10 @@
 
 @implementation TimerView
 
+- (void)drawCircle: (int)angle{
+    
+}
+
 
 
 @end

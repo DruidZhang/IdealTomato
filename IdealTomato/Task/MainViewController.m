@@ -19,8 +19,13 @@
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     //跳转这么写
-//    TimerViewController *timerVC = [[TimerViewController alloc]init];
-//    [self.navigationController pushViewController:timerVC animated:YES];
+    TimerViewController *timerVC = [[TimerViewController alloc]init];
+    [self.navigationController pushViewController:timerVC animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 @end
