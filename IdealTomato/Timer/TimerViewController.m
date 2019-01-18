@@ -9,28 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "TimerViewController.h"
 #import "TimerView.h"
-#import "../Tomato.h"
 
 @interface TimerViewController()
 
 @property TimerView *timerView;
-@property Tomato *tomato;
+@property TaskModel *task;
 
 @end
 
 @implementation TimerViewController
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColor.redColor;
+    self.tabBarController.tabBar.hidden = YES;
+    _timerView = [[TimerView alloc]init];
+    [self.view addSubview:_timerView];
 }
 
-- (void)loadView {
-    self.tabBarController.tabBar.hidden = YES;
-    self.timerView = [[TimerView alloc]init];
-    self.view = _timerView;
-    self.view.backgroundColor = UIColor.redColor;
+- (void)showTimerWith:(TaskModel *)task andDo:(void (^)(void))tomatoDone{
+    self.task = task;
+    
 }
 
 - (void)drawCircle: (int)angle andDo:(void(^)(id obj))tomatoDone {

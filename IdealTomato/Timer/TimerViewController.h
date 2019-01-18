@@ -10,10 +10,11 @@
 #define TimerViewController_h
 
 #import <UIKit/UIKit.h>
+#import "../TaskModel.h"
 
 @interface TimerViewController : UIViewController
 
-- (void)show;
+- (void)showTimerWith: (TaskModel *)task andDo: (void (^)(void))tomatoDone;
 
 @end
 
