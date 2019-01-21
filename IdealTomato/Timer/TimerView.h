@@ -13,7 +13,7 @@
 
 @interface TimerView : UIView
 
-- (void)drawCircle: (int)angle;
+- (void)drawCircle: (double)angle andText: (NSString *)timeStr;
 
 @end
 
