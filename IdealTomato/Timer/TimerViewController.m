@@ -19,6 +19,7 @@
 @property NSTimer *timer;
 @property int workTime;
 @property int restTime;
+@property BOOL timerRunning;
 
 
 @end
@@ -34,6 +35,7 @@ static int REST_TIME = 5;
     if (self) {
         _workTime = WORK_TIME;
         _restTime = REST_TIME;
+        _timerRunning = NO;
     }
     return self;
 }
@@ -63,6 +65,14 @@ static int REST_TIME = 5;
     int screenWidth = [UIScreen mainScreen].bounds.size.width;
     _timerView = [[TimerView alloc]initWithFrame:CGRectMake(40, statusbarHeight+navigationbarHeight+80, screenWidth-80, screenWidth-80)];
 //    _timerView.clearsContextBeforeDrawing = YES;
+    _timerView.userInteractionEnabled = YES;
+    //timerView添加点击手势
+    UITapGestureRecognizer *clickGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(timerViewClick)];
+    //单指
+    clickGesture.numberOfTouchesRequired = 1;
+    //单击
+    clickGesture.numberOfTapsRequired = 1;
+    [_timerView addGestureRecognizer:clickGesture];
     [self.view addSubview:_timerView];
     [self testShowTimer];
     
@@ -94,18 +104,32 @@ static int REST_TIME = 5;
     return [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];
 }
 
+- (void)timerViewClick{
+    if(_timerRunning){
+        NSDate *future = [NSDate distantFuture];
+        [_timer setFireDate:future];
+        
+    } else {
+        [_timer setFireDate:[NSDate date]];
+        //这里用[timer fire]就出现只运行1s的问题
+    }
+    _timerRunning = !_timerRunning;
+}
+
 - (void)testShowTimer {
     //加入循环池
     [[NSRunLoop mainRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
     //开始循环
+    _timerRunning = YES;
     [_timer fire];
 }
 
 - (void)showTimerWith:(TaskModel *)task andDo:(void (^)(void))tomatoDone{
     self.task = task;
     //加入循环池
-    [[NSRunLoop mainRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
     //开始循环
+    _timerRunning = YES;
     [_timer fire];
 }
 
