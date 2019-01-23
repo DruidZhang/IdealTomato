@@ -108,7 +108,22 @@ static int REST_TIME = 5;
     if(_timerRunning){
         NSDate *future = [NSDate distantFuture];
         [_timer setFireDate:future];
-        
+        //上拉菜单的style为UIAlertControllerStyleActionSheet,注意style为UIAlertActionStyleCancel的action默认在最下
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"title" message:@"mes" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"OK click");
+        }];
+        //style为UIAlertActionStyleDestructive的action显示是红色的
+//        UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:nil];
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:^{
+            NSLog(@"dialog show");
+        }];
+//        [alertController dismissViewControllerAnimated:YES completion:^{
+//            NSLog(@"dialog dismiss");
+//        }];
     } else {
         [_timer setFireDate:[NSDate date]];
         //这里用[timer fire]就出现只运行1s的问题
