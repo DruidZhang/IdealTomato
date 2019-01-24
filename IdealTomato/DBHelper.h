@@ -41,7 +41,7 @@
 
 + (int)getUncompletedTaskCount;
 
-- (int)getCompletedTaskCount;
++ (int)getCompletedTaskCount;
 
 @end
 

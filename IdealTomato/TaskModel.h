@@ -16,7 +16,7 @@
 @property NSString *taskBrief;
 @property NSDate *taskDate;
 @property BOOL taskCompleted;
-@property int goodTomatoCount;
+@property BOOL goodTomato;
 @property int badTomatoCount;
 
 @end
