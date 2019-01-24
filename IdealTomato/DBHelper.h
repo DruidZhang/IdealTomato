@@ -16,7 +16,7 @@
 
 + (void)insertTask: (TaskModel *)task;
 
-+ (void)deleteTaskById:(int)taksId;
++ (void)deleteTaskById:(int)taskId;
 
 + (void)updateTask:(TaskModel *)task;
 

@@ -17,7 +17,7 @@
     NSString *filePath = [path stringByAppendingPathComponent:@"IdealTomato.db"];
     FMDatabase *db = [FMDatabase databaseWithPath:filePath];
     if(![db open]){
-        NSLog(@"error:faile to op db");
+        NSLog(@"error:fail to op db");
         return nil;
     }
     return db;
@@ -48,9 +48,27 @@
     NSString *sql = @"insert into task values(?,?,?,?,?,?)";
     BOOL result = [db executeUpdate:sql,task.taskName,task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount)];
     if(!result){
-        NSLog(@"error:faile to insert into task");
+        NSLog(@"error:fail to insert into task");
     }
 }
 
++ (void)deleteTaskById:(int)taskId{
+    FMDatabase *db = [self openDB];
+    if(db == nil) return;
+    BOOL result = [db executeUpdate:@"delete from task where taskId = ?",@(taskId)];
+    if(!result){
+        NSLog(@"error:fail to delete from task");
+    }
+}
+
++ (void)updateTask:(TaskModel *)task{
+    FMDatabase *db = [self openDB];
+    if(db == nil) return;
+    BOOL result = [db executeUpdate:@"update task set taskName = ?, taskBrief = ?, taskDate = ?, taskCompleted = ?, goodTomato = ?, badTomatoCount = ?\
+                   where taskId = ?",task.taskName,task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount),@(task.taskId) ];
+    if(!result){
+        NSLog(@"error:fail to update task");
+    }
+}
 
 @end
