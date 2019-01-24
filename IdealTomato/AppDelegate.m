@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabBarController.h"
+#import "DBHelper.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,7 @@
 //     Override point for customization after application launch.
     TabBarController *tabVC = [[TabBarController alloc]init];
     self.window.rootViewController = tabVC;
+    [DBHelper createTable];
     return YES;
 }
 
