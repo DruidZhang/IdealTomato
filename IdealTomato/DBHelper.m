@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DBHelper.h"
 #import "FMDatabase.h"
+#import "FMDatabaseAdditions.h"
 
 @implementation DBHelper
 
@@ -23,11 +24,33 @@
     return db;
 }
 
-+ (void)createTable{
++ (BOOL)dbExecuteUpdate: (NSString *)sql,... {
+    FMDatabase *db = [self openDB];
+    if(db == nil) return NO;
+    va_list args;
+    va_start(args, sql);
+    BOOL result = [db executeUpdate:sql withVAList:args];
+    va_end(args);
+    [db close];
+    return result;
+}
+
++ (int)dbIntForQuery: (NSString *)sql,... {
+    FMDatabase *db = [self openDB];
+    if(db == nil) return -1;
+    va_list args;
+    va_start(args, sql);
+    int result = [db intForQuery:sql,args];
+    va_end(args);
+    [db close];
+    return result;
+}
+
++ (BOOL)createTable{
     NSUserDefaults *dbDefaults = [NSUserDefaults standardUserDefaults];
     if(![dbDefaults boolForKey:@"CREATED"]){
         FMDatabase *db = [self openDB];
-        if(db == nil) return;
+        if(db == nil) return NO;
         NSString *sql = @"create table if not exists task(taskId integer primary key autoincrement,\
                                                         taskName varchar(50),\
                                                         taskBrief varchar(100),\
@@ -35,40 +58,110 @@
                                                         taskCompleted bool,\
                                                         goodTomato bool,\
                                                         badTomatoCount integer)";
-        if([db executeUpdate:sql]){
-            NSLog(@"create table task");
-            [dbDefaults setBool:YES forKey:@"CREATED"];
+        if(![db executeUpdate:sql]){
+            [db close];
+            return NO;
         }
+        NSLog(@"create table task");
+        [dbDefaults setBool:YES forKey:@"CREATED"];
     }
+    return YES;
 }
 
-+ (void)insertTask:(TaskModel *)task{
-    FMDatabase *db = [self openDB];
-    if(db==nil) return;
-    NSString *sql = @"insert into task values(?,?,?,?,?,?)";
-    BOOL result = [db executeUpdate:sql,task.taskName,task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount)];
++ (BOOL)insertTask:(TaskModel *)task{
+    BOOL result = [self dbExecuteUpdate: @"insert into task values(?,?,?,?,?,?)",task.taskName,
+                   task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount)];
     if(!result){
-        NSLog(@"error:fail to insert into task");
+        NSLog(@"error:fail to insert into task where taskName = %@",task.taskName);
     }
+    return result;
 }
 
-+ (void)deleteTaskById:(int)taskId{
-    FMDatabase *db = [self openDB];
-    if(db == nil) return;
-    BOOL result = [db executeUpdate:@"delete from task where taskId = ?",@(taskId)];
++ (BOOL)deleteTaskById:(int)taskId{
+    BOOL result = [self dbExecuteUpdate: @"delete from task where taskId = ?",taskId];
     if(!result){
-        NSLog(@"error:fail to delete from task");
+        NSLog(@"error:fail to delete from task where taskId = %d",taskId);
     }
+    return result;
 }
 
-+ (void)updateTask:(TaskModel *)task{
-    FMDatabase *db = [self openDB];
-    if(db == nil) return;
-    BOOL result = [db executeUpdate:@"update task set taskName = ?, taskBrief = ?, taskDate = ?, taskCompleted = ?, goodTomato = ?, badTomatoCount = ?\
-                   where taskId = ?",task.taskName,task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount),@(task.taskId) ];
++ (BOOL)updateTask:(TaskModel *)task{
+    BOOL result = [self dbExecuteUpdate: @"update task set taskName = ?, taskBrief = ?, taskDate = ?, taskCompleted = ?, goodTomato = ?, badTomatoCount = ?\
+                   where taskId = ?",task.taskName,task.taskBrief,task.taskDate,@(task.taskCompleted),@(task.goodTomato),@(task.badTomatoCount),@(task.taskId)];
     if(!result){
-        NSLog(@"error:fail to update task");
+        NSLog(@"error:fail to update task where taskName = %@",task.taskName);
     }
+    return result;
+}
+
++ (BOOL)updateTaskCompleted:(BOOL)taskCompleted ById:(int)taskId{
+    BOOL result = [self dbExecuteUpdate: @"update task set taskCompleted = ? where taskId = ?",@(taskCompleted),@(taskId)];
+    if(!result){
+        NSLog(@"error:fail to update taskCompleted where taskId = %d",taskId);
+    }
+    return result;
+}
+
++ (BOOL)updateTaskGoodTomato:(BOOL)goodTomato ById:(int)taskId{
+    BOOL result = [self dbExecuteUpdate: @"update task set goodTomato = ? where taskId = ?",@(goodTomato),@(taskId)];
+    if(!result){
+        NSLog(@"error:fail to update taskCompleted where taskId = %d",taskId);
+    }
+    return result;
+}
+
++ (BOOL)updateTaskInfoName:(NSString *)taskName Brief:(NSString *)taskBrief Date:(NSDate *)taskDate ById:(int)taskId{
+    BOOL result = [self dbExecuteUpdate: @"update task set taskName = ?, taskBrief = ?, taskDate = ? where taskId = ?",taskName,taskBrief,taskDate,@(taskId)];
+    if(!result){
+        NSLog(@"error:fail to update taskCompleted where taskName = %@",taskName);
+    }
+    return result;
+}
+
++ (BOOL)incrementTaskBadTomatoCountById:(int)taskId{
+    int count = [self getBadTomatoCountById:taskId]+1;
+    BOOL result = [self dbExecuteUpdate: @"update task set badTomatoCount = ? where taskId = ?",@(count),@(taskId)];
+    if(!result){
+        NSLog(@"error:fail to update taskCompleted where taskId = %d",taskId);
+    }
+    return result;
+}
+
++ (TaskModel *)getTaskById:(int)taskId{
+    FMDatabase *db = [self openDB];
+    if(db == nil) return nil;
+    TaskModel *task = [[TaskModel alloc]init];
+    FMResultSet * resultSet = [db executeQueryWithFormat:@"select * from task where taskId = %d",taskId];
+    if(resultSet.next){
+        task.taskName = [resultSet stringForColumn:@"taskName"];
+        task.taskBrief = [resultSet stringForColumn:@"taskBrief"];
+        task.taskDate = [resultSet dateForColumn:@"taskDate"];
+        task.taskCompleted = [resultSet boolForColumn:@"taskCompleted"];
+        task.goodTomato = [resultSet boolForColumn:@"goodTomato"];
+        task.badTomatoCount = [resultSet intForColumn:@"badTomatoCount"];
+    }
+    [db close];
+    return task;
+}
+
++ (int)getBadTomatoCountById:(int)taskId{
+    return [self dbIntForQuery:@"select badTomatoCount from task where taskId = ?",@(taskId)];
+}
+
++ (int)getTaskCount{
+    return [self dbIntForQuery:@"select count(*) from task"];
+}
+
++ (int)getUncompletedTaskCount{
+    return [self dbIntForQuery:@"select count(*) from task where taskCompleted = false"];
+}
+
++ (int)getCompletedTaskCount{
+    return [self dbIntForQuery:@"select count(*) from task where taskCompleted = true"];
+}
+
++ (int)getAllBadTomatoCount{
+    return [self dbIntForQuery:@"select sum(badTomatoCount) from task"];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3919227321F95ED800683A00 /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919227221F95ED800683A00 /* DBHelper.m */; };
+		3919227621FAF0EA00683A00 /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919227521FAF0EA00683A00 /* TaskModel.m */; };
 		394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */; };
 		394DEF0521EDA96E00AB6D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0321EDA96E00AB6D1C /* Main.storyboard */; };
 		394DEF0721EDA97200AB6D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0621EDA97200AB6D1C /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		3919227121F95EC900683A00 /* DBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
 		3919227221F95ED800683A00 /* DBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
+		3919227521FAF0EA00683A00 /* TaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskModel.m; sourceTree = "<group>"; };
 		394DEEFA21EDA96E00AB6D1C /* IdealTomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdealTomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394DEEFD21EDA96E00AB6D1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				394DEF2921F1A48E00AB6D1C /* TaskModel.h */,
 				3919227121F95EC900683A00 /* DBHelper.h */,
 				3919227221F95ED800683A00 /* DBHelper.m */,
+				3919227521FAF0EA00683A00 /* TaskModel.m */,
 			);
 			name = TomatoModelWithDB;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				394DEF2121EDD48400AB6D1C /* TimerViewController.m in Sources */,
 				394DEF1D21EDC33500AB6D1C /* StatisticViewController.m in Sources */,
+				3919227621FAF0EA00683A00 /* TaskModel.m in Sources */,
 				394DEF1521EDB73800AB6D1C /* TabBarController.m in Sources */,
 				3919227321F95ED800683A00 /* DBHelper.m in Sources */,
 				394DEF0D21EDA97200AB6D1C /* main.m in Sources */,

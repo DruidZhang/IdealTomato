@@ -12,23 +12,25 @@
 
 @interface DBHelper : NSObject
 
-+ (void)createTable;
++ (BOOL)createTable;
 
-+ (void)insertTask: (TaskModel *)task;
++ (BOOL)insertTask: (TaskModel *)task;
 
-+ (void)deleteTaskById:(int)taskId;
++ (BOOL)deleteTaskById:(int)taskId;
 
-+ (void)updateTask:(TaskModel *)task;
++ (BOOL)updateTask:(TaskModel *)task;
 
-+ (void)updateTaskCompleted: (BOOL)taskCompleted ById: (int)taskId;
++ (BOOL)updateTaskCompleted: (BOOL)taskCompleted ById: (int)taskId;
 
-+ (void)updateTaskGoodTomato: (BOOL)goodTomato ById: (int)taskId;
++ (BOOL)updateTaskGoodTomato: (BOOL)goodTomato ById: (int)taskId;
 
-+ (void)updateTaskInfoName: (NSString *)taskName Brief:(NSString *)taskBrief Date: (NSDate *)taskDate ById: (int)taskId;
++ (BOOL)updateTaskInfoName: (NSString *)taskName Brief:(NSString *)taskBrief Date: (NSDate *)taskDate ById: (int)taskId;
 
-+ (void)incrementTaskBadTomatoCountById: (int)taskId;
++ (BOOL)incrementTaskBadTomatoCountById: (int)taskId;
 
 + (TaskModel *)getTaskById: (int)taskId;
+
++ (int)getBadTomatoCountById: (int)taskId;
 
 //这三个首页列表用到,返回值根据你需要改吧
 + (void)getAllTask;
@@ -42,6 +44,8 @@
 + (int)getUncompletedTaskCount;
 
 + (int)getCompletedTaskCount;
+
++ (int)getAllBadTomatoCount;
 
 @end
 
