@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "TimerViewController.h"
 #import "TimerView.h"
+#import "../DBHelper.h"
+
 
 @interface TimerViewController()
 
@@ -17,10 +19,11 @@
 @property TimerView *timerView;
 @property TaskModel *task;
 @property NSTimer *timer;
+@property UILabel *label_taskName;
 @property int workTime;
 @property int restTime;
 @property BOOL timerRunning;
-
+@property(nonatomic, copy) void (^tomatoDone)(void);
 
 @end
 
@@ -44,8 +47,9 @@ static int REST_TIME = 5;
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     self.tabBarController.tabBar.hidden = YES;
+#pragma mark - 创建TimerView
     self.timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(timerCountDown) userInfo:nil repeats:YES];
-    
+   
     //block方式创建timer
 //    __weak __typeof(self)weakSelf = self;
 //    _timer = [NSTimer timerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -74,6 +78,15 @@ static int REST_TIME = 5;
     clickGesture.numberOfTapsRequired = 1;
     [_timerView addGestureRecognizer:clickGesture];
     [self.view addSubview:_timerView];
+#pragma mark - 创建taskName的label
+    _label_taskName = [[UILabel alloc] init];
+    _label_taskName.frame = CGRectMake(40, statusbarHeight+navigationbarHeight+screenWidth+80, screenWidth-80, 40);
+    _label_taskName.textColor = [UIColor blackColor];
+    _label_taskName.textAlignment = NSTextAlignmentCenter;
+    _label_taskName.font = [UIFont systemFontOfSize:20.0f];
+    _label_taskName.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_label_taskName];
+    
     [self testShowTimer];
     
 }
@@ -84,6 +97,7 @@ static int REST_TIME = 5;
         [self.timer invalidate];
         self.timer = nil;
     }
+    //对比self和db的task,不同则用self的刷新
 }
 
 - (void)timerCountDown{
@@ -105,33 +119,67 @@ static int REST_TIME = 5;
 }
 
 - (void)timerViewClick{
+    __weak __typeof(self)weakSelf = self;
     if(_timerRunning){
+        //暂停
         NSDate *future = [NSDate distantFuture];
         [_timer setFireDate:future];
+#pragma mark - work time的点击dialog
         //上拉菜单的style为UIAlertControllerStyleActionSheet,注意style为UIAlertActionStyleCancel的action默认在最下
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"title" message:@"mes" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"OK click");
+        UIAlertController *workAC = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要放弃?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
+             [weakSelf.timer setFireDate:[NSDate date]];
+        }];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"放弃" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//            [DBHelper incrementTaskBadTomatoCountById:weakSelf.task.taskId];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"已完成" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [DBHelper updateTaskCompleted:YES ById:weakSelf.task.taskId];
+//            [DBHelper updateTaskGoodTomato:YES ById:weakSelf.task.taskId];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
         //style为UIAlertActionStyleDestructive的action显示是红色的
 //        UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:nil];
-        [alertController addAction:cancelAction];
-        [alertController addAction:okAction];
-        [self presentViewController:alertController animated:YES completion:^{
-            NSLog(@"dialog show");
+        [workAC addAction:cancelAction];
+        [workAC addAction:okAction];
+        [workAC addAction:doneAction];
+        
+#pragma mark - rest time的点击dialog
+        UIAlertController *restAC = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认跳过休息?" preferredStyle:UIAlertControllerStyleAlert];
+        //直接复用work的action会出现不响应的问题
+        UIAlertAction *restCancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
+            [weakSelf.timer setFireDate:[NSDate date]];
         }];
-//        [alertController dismissViewControllerAnimated:YES completion:^{
-//            NSLog(@"dialog dismiss");
-//        }];
+        UIAlertAction *restOK = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [DBHelper updateTaskCompleted:YES ById:weakSelf.task.taskId];
+//            [DBHelper updateTaskGoodTomato:YES ById:weakSelf.task.taskId];
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        [restAC addAction:restCancelAction];
+        [restAC addAction:restOK];
+        
+        if(_workTime >=0){
+            //work time
+            [self presentViewController:workAC animated:YES completion:nil];
+        } else if(_restTime >=0){
+            [self presentViewController:restAC animated:YES completion:nil];
+        }
+        //关闭dialog
+//        [alertController dismissViewControllerAnimated:YES completion:nil];
     } else {
-        [_timer setFireDate:[NSDate date]];
+        //开始
         //这里用[timer fire]就出现只运行1s的问题
+        [_timer setFireDate:[NSDate date]];
+        _timerRunning = !_timerRunning;
     }
-    _timerRunning = !_timerRunning;
 }
 
 - (void)testShowTimer {
+    _task = [[TaskModel alloc]init];
+    _task.taskName = @"测试任务";
+    _label_taskName.text = _task.taskName;
+
     //加入循环池
     [[NSRunLoop mainRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
     //开始循环
@@ -141,6 +189,8 @@ static int REST_TIME = 5;
 
 - (void)showTimerWith:(TaskModel *)task andDo:(void (^)(void))tomatoDone{
     self.task = task;
+    _label_taskName.text = _task.taskName;
+    self.tomatoDone = tomatoDone;
     //加入循环池
     [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
     //开始循环
