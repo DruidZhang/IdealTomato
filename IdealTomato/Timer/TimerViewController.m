@@ -97,7 +97,10 @@ static int REST_TIME = 5;
         [self.timer invalidate];
         self.timer = nil;
     }
-    //对比self和db的task,不同则用self的刷新
+    //对比self和db的task,不同则用self的刷新 ?
+    if(self.tomatoDone != nil){
+        self.tomatoDone();
+    }
 }
 
 - (void)timerCountDown{
@@ -126,7 +129,7 @@ static int REST_TIME = 5;
         [_timer setFireDate:future];
 #pragma mark - work time的点击dialog
         //上拉菜单的style为UIAlertControllerStyleActionSheet,注意style为UIAlertActionStyleCancel的action默认在最下
-        UIAlertController *workAC = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要放弃?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *workAC = [UIAlertController alertControllerWithTitle:@"确定要放弃?" message:nil preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
              [weakSelf.timer setFireDate:[NSDate date]];
         }];
@@ -146,7 +149,7 @@ static int REST_TIME = 5;
         [workAC addAction:doneAction];
         
 #pragma mark - rest time的点击dialog
-        UIAlertController *restAC = [UIAlertController alertControllerWithTitle:@"提示" message:@"确认跳过休息?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *restAC = [UIAlertController alertControllerWithTitle:@"确认跳过休息?" message:nil preferredStyle:UIAlertControllerStyleAlert];
         //直接复用work的action会出现不响应的问题
         UIAlertAction *restCancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
             [weakSelf.timer setFireDate:[NSDate date]];
