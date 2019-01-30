@@ -47,6 +47,10 @@
 
 + (int)getAllBadTomatoCount;
 
++ (int)getTodayCompletedTaskCount;
+
++ (int)getTodayBadTomatoCount;
+
 @end
 
 #endif /* DBHelper_h */

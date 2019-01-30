@@ -164,4 +164,12 @@
     return [self dbIntForQuery:@"select sum(badTomatoCount) from task"];
 }
 
++ (int)getTodayCompletedTaskCount{
+    return [self dbIntForQuery: @""];
+}
+
++ (int)getTodayBadTomatoCount{
+    return [self dbIntForQuery:@""];
+}
+
 @end

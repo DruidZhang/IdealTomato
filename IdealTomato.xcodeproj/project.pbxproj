@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3919227321F95ED800683A00 /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919227221F95ED800683A00 /* DBHelper.m */; };
 		3919227621FAF0EA00683A00 /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919227521FAF0EA00683A00 /* TaskModel.m */; };
+		3919227A2201A63900683A00 /* StatisticView.m in Sources */ = {isa = PBXBuildFile; fileRef = 391922792201A63900683A00 /* StatisticView.m */; };
+		3919227C2201A65B00683A00 /* StatisticalMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3919227B2201A65B00683A00 /* StatisticalMode.m */; };
 		394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */; };
 		394DEF0521EDA96E00AB6D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0321EDA96E00AB6D1C /* Main.storyboard */; };
 		394DEF0721EDA97200AB6D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394DEF0621EDA97200AB6D1C /* Assets.xcassets */; };
@@ -26,6 +28,10 @@
 		3919227121F95EC900683A00 /* DBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
 		3919227221F95ED800683A00 /* DBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
 		3919227521FAF0EA00683A00 /* TaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskModel.m; sourceTree = "<group>"; };
+		391922772201A53500683A00 /* StatisticView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticView.h; sourceTree = "<group>"; };
+		391922782201A5F200683A00 /* StatisticalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticalModel.h; sourceTree = "<group>"; };
+		391922792201A63900683A00 /* StatisticView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticView.m; sourceTree = "<group>"; };
+		3919227B2201A65B00683A00 /* StatisticalMode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatisticalMode.m; sourceTree = "<group>"; };
 		394DEEFA21EDA96E00AB6D1C /* IdealTomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdealTomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		394DEEFD21EDA96E00AB6D1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		394DEEFE21EDA96E00AB6D1C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +129,10 @@
 			children = (
 				394DEF1B21EDC32C00AB6D1C /* StatisticViewController.h */,
 				394DEF1C21EDC33500AB6D1C /* StatisticViewController.m */,
+				391922772201A53500683A00 /* StatisticView.h */,
+				391922792201A63900683A00 /* StatisticView.m */,
+				391922782201A5F200683A00 /* StatisticalModel.h */,
+				3919227B2201A65B00683A00 /* StatisticalMode.m */,
 			);
 			path = Statistic;
 			sourceTree = "<group>";
@@ -142,9 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				394DEF2921F1A48E00AB6D1C /* TaskModel.h */,
+				3919227521FAF0EA00683A00 /* TaskModel.m */,
 				3919227121F95EC900683A00 /* DBHelper.h */,
 				3919227221F95ED800683A00 /* DBHelper.m */,
-				3919227521FAF0EA00683A00 /* TaskModel.m */,
 			);
 			name = TomatoModelWithDB;
 			sourceTree = "<group>";
@@ -294,10 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				394DEF2121EDD48400AB6D1C /* TimerViewController.m in Sources */,
+				3919227C2201A65B00683A00 /* StatisticalMode.m in Sources */,
 				394DEF1D21EDC33500AB6D1C /* StatisticViewController.m in Sources */,
 				3919227621FAF0EA00683A00 /* TaskModel.m in Sources */,
 				394DEF1521EDB73800AB6D1C /* TabBarController.m in Sources */,
 				3919227321F95ED800683A00 /* DBHelper.m in Sources */,
+				3919227A2201A63900683A00 /* StatisticView.m in Sources */,
 				394DEF0D21EDA97200AB6D1C /* main.m in Sources */,
 				394DEF2421EDD64000AB6D1C /* TimerView.m in Sources */,
 				394DEEFF21EDA96E00AB6D1C /* AppDelegate.m in Sources */,
