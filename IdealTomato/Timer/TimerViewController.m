@@ -109,6 +109,7 @@ static int REST_TIME = 5;
     } else {
         if(_restTime-- < 0){
             [_timer invalidate];
+//            [self doWhenTaskCompletedWithNoSkip];
         } else {
             [self.timerView drawCircle:((double)_restTime+1)/REST_TIME andText:[self getTimeStr:_restTime+1]];
         }
@@ -119,6 +120,12 @@ static int REST_TIME = 5;
     int minutes = time/60;
     int seconds = time-minutes*60;
     return [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];
+}
+
+- (void)doWhenTaskCompletedWithNoSkip{
+    __weak __typeof(self)weakSelf = self;
+    [DBHelper updateTaskCompleted:YES ById:weakSelf.task.taskId];
+    [DBHelper updateTaskGoodTomato:YES ById:weakSelf.task.taskId];
 }
 
 - (void)timerViewClick{
@@ -133,17 +140,16 @@ static int REST_TIME = 5;
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){
              [weakSelf.timer setFireDate:[NSDate date]];
         }];
+        //style为UIAlertActionStyleDestructive的action显示是红色的
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"放弃" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 //            [DBHelper incrementTaskBadTomatoCountById:weakSelf.task.taskId];
             [self.navigationController popViewControllerAnimated:YES];
         }];
         UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"已完成" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //            [DBHelper updateTaskCompleted:YES ById:weakSelf.task.taskId];
-//            [DBHelper updateTaskGoodTomato:YES ById:weakSelf.task.taskId];
+//            [DBHelper incrementTaskBadTomatoCountById:weakSelf.task.taskId];
             [self.navigationController popViewControllerAnimated:YES];
         }];
-        //style为UIAlertActionStyleDestructive的action显示是红色的
-//        UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:nil];
         [workAC addAction:cancelAction];
         [workAC addAction:okAction];
         [workAC addAction:doneAction];
