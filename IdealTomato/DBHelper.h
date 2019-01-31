@@ -51,6 +51,10 @@
 
 + (int)getTodayBadTomatoCount;
 
++ (int)getCompletedTaskCountInDate:(NSDate *)date;
+
++ (int)getBadTomatoCountInDate:(NSDate *)date;
+
 @end
 
 #endif /* DBHelper_h */

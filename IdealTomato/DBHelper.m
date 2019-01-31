@@ -165,11 +165,48 @@
 }
 
 + (int)getTodayCompletedTaskCount{
-    return [self dbIntForQuery: @""];
+    return [self getCompletedTaskCountInDate:[NSDate date]];
 }
 
 + (int)getTodayBadTomatoCount{
-    return [self dbIntForQuery:@""];
+    return [self getBadTomatoCountInDate:[NSDate date]];
+}
+
++ (int)getCompletedTaskCountInDate:(NSDate *)date{
+    NSDate *yesterday = [self get0ClockByDate:date];
+    NSDate *tomorrow = [self get24ClockByDate:date];
+    return [self dbIntForQuery:@"select count(*) from task where taskDate between ? and ?",yesterday,tomorrow];
+}
+
++ (int)getBadTomatoCountInDate:(NSDate *)date{
+    NSDate *yesterday = [self get0ClockByDate:date];
+    NSDate *tomorrow = [self get24ClockByDate:date];
+    return [self dbIntForQuery:@"select sum(badTomatoCount) from task where taskDate between ? and ?",yesterday,tomorrow];
+}
+
+/**
+ * 根据date返回当天0点的时间
+ */
++ (NSDate *)get0ClockByDate: (NSDate *)date{
+    if(date == nil) return nil;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitfFlag = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+    NSDateComponents *components = [calendar components:unitfFlag fromDate:date];
+    //date的时分秒
+    int hour = (int)[components hour];
+    int minute = (int)[components minute];
+    int second = (int)[components second];
+    //date减去(时*3600+分*60+秒)得到零点的时间
+    return [NSDate dateWithTimeInterval:-(hour*3600+minute*60+second) sinceDate:date];
+}
+
+/**
+ * 根据date返回当天24点的时间,即第二天0点的时间
+ */
++ (NSDate *)get24ClockByDate: (NSDate *)date{
+    NSTimeInterval day = 24*60*60;
+//    return [self get0ClockByDate:[date dateByAddingTimeInterval:day]];
+    return [NSDate dateWithTimeInterval:day sinceDate:[self get0ClockByDate:date]];
 }
 
 @end
