@@ -44,7 +44,7 @@
 //    todayCompletedTask.text = [NSString stringWithFormat:@"已完成任务:%d",[DBHelper getTodayCompletedTaskCount]];
     todayCompletedTask.text = @"已完成任务:2";
     todayCompletedTask.textColor = [UIColor blackColor];
-    todayCompletedTask.textAlignment = NSTextAlignmentLeft;
+    todayCompletedTask.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:todayCompletedTask];
     
     UILabel *todayGoodTomato = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth/2+20, statusbarHeight+navigationbarHeight+120, screenWidth/2-40, 40)];
@@ -53,11 +53,11 @@
 //        todayCompletedTask.text = [NSString stringWithFormat:@"收货番茄:%d",[DBHelper getTodayGoodTomatoCount]];
     todayGoodTomato.text = @"收货番茄:1";
     todayGoodTomato.textColor = [UIColor blackColor];
-    todayGoodTomato.textAlignment = NSTextAlignmentLeft;
+    todayGoodTomato.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:todayGoodTomato];
     
     #pragma mark - dividerView
-    UIView *dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, statusbarHeight+navigationbarHeight+180, screenWidth, 2)];
+    UIView *dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, statusbarHeight+navigationbarHeight+180, screenWidth, 1)];
     [dividerView setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:dividerView];
     #pragma mark - 历史总结view
