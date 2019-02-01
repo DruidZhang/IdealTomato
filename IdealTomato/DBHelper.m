@@ -175,13 +175,27 @@
 + (int)getCompletedTaskCountInDate:(NSDate *)date{
     NSDate *yesterday = [self get0ClockByDate:date];
     NSDate *tomorrow = [self get24ClockByDate:date];
-    return [self dbIntForQuery:@"select count(*) from task where taskDate between ? and ?",yesterday,tomorrow];
+    return [self dbIntForQuery:@"select count(*) from task where taskCompleted = true and taskDate between ? and ?",yesterday,tomorrow];
 }
 
 + (int)getBadTomatoCountInDate:(NSDate *)date{
     NSDate *yesterday = [self get0ClockByDate:date];
     NSDate *tomorrow = [self get24ClockByDate:date];
     return [self dbIntForQuery:@"select sum(badTomatoCount) from task where taskDate between ? and ?",yesterday,tomorrow];
+}
+
++ (int)getGoodTomatoCount{
+    return [self dbIntForQuery:@"select count(*) from task where goodTomato = true"];
+}
+
++ (int)getTodayGoodTomatoCount{
+    return [self getGoodTomatoCountInDate:[NSDate date]];
+}
+
++ (int)getGoodTomatoCountInDate:(NSDate *)date{
+    NSDate *yesterday = [self get0ClockByDate:date];
+    NSDate *tomorrow = [self get24ClockByDate:date];
+    return [self dbIntForQuery:@"select count(*) from task where goodTomato = true and taskDate between ? and ?",yesterday,tomorrow];
 }
 
 /**
