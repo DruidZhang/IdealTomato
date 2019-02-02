@@ -16,7 +16,8 @@
     [super viewDidLoad];
     //#f0f0f2
     self.view.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:242.0/255.0 alpha:1];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    //这个是设置view会不会延伸到屏幕上下部分
+//    self.edgesForExtendedLayout = UIRectEdgeTop;
     
     //跳转这么写
 //    TimerViewController *timerVC = [[TimerViewController alloc]init];

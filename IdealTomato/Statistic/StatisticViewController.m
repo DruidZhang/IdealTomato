@@ -57,8 +57,8 @@
     [self.view addSubview:todayGoodTomato];
     
     #pragma mark - dividerView
-    UIView *dividerView = [[UIView alloc] initWithFrame:CGRectMake(0, statusbarHeight+navigationbarHeight+180, screenWidth, 1)];
-    [dividerView setBackgroundColor:[UIColor blackColor]];
+    UIView *dividerView = [[UIView alloc] initWithFrame:CGRectMake(20, statusbarHeight+navigationbarHeight+180, screenWidth-40, 1)];
+    [dividerView setBackgroundColor:[UIColor grayColor]];
     [self.view addSubview:dividerView];
     #pragma mark - 历史总结view
     UILabel *totalTitle = [[UILabel alloc] initWithFrame:CGRectMake(40, statusbarHeight+navigationbarHeight+200, screenWidth-80, 40)];
